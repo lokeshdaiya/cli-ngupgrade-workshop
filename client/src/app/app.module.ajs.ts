@@ -4,7 +4,10 @@ import 'angular-route';
 import 'jquery';
 import 'lodash';
 
-import { downgradeComponent } from '@angular/upgrade/static';
+import {
+  downgradeComponent,
+  downgradeInjectable
+} from '@angular/upgrade/static';
 
 import hashPrefixConfig from './config.hashprefix';
 import routeProviderConfig from './config.routes';
@@ -19,7 +22,7 @@ import createOrderComponent from './createOrder/createOrder';
 import orderDetailComponent from './orderDetail/orderDetail';
 import productsComponent from './products/products';
 import productDetailComponent from './productDetail/productDetail';
-import CustomerService from './customers/customerService';
+import { CustomerService } from './customers/customer.service';
 import AddressService from './shared/addressService';
 import OrderService from './orders/orderService';
 import ProductService from './products/productService';
@@ -43,7 +46,7 @@ angular
   .component('orderDetail', orderDetailComponent)
   .component('products', productsComponent)
   .component('productDetail', productDetailComponent)
-  .service('customerService', CustomerService)
+  .factory('customerService', downgradeInjectable(CustomerService))
   .service('addressService', AddressService)
   .service('orderService', OrderService)
   .service('productService', ProductService);
