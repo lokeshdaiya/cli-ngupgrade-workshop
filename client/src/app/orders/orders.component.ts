@@ -13,6 +13,7 @@ import { forkJoin } from 'rxjs';
 export class OrdersComponent implements OnInit {
   title = 'Orders';
   orders: Order[];
+  filteredOrders: Order[];
   customers: Customer[];
 
   constructor(
@@ -35,10 +36,21 @@ export class OrdersComponent implements OnInit {
         });
         order.customerName = customer.fullName;
       });
+      this.filteredOrders = this.orders;
     });
   }
 
   goToCreateOrder() {
     this.$location.path('/orders/create');
+  }
+
+  filterOrders(search: string) {
+    this.filteredOrders = this.orders.filter(o =>
+      Object.keys(o).some(k => {
+        if (typeof o[k] === 'string') {
+          return o[k].toLowerCase().includes(search.toLowerCase());
+        }
+      })
+    );
   }
 }
