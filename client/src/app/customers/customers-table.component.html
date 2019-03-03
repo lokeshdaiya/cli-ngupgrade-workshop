@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let customer of customers">
+    <tr *ngFor="let customer of (customers | async)">
       <td>
         <a href="#/customers/{{ customer.id }}">{{ customer.fullName }}</a>
       </td>
