@@ -4,9 +4,11 @@ import 'angular-route';
 import 'jquery';
 import 'lodash';
 
+import { downgradeComponent } from '@angular/upgrade/static';
+
 import hashPrefixConfig from './config.hashprefix';
 import routeProviderConfig from './config.routes';
-import homeComponent from './home/home';
+import { HomeComponent } from './home/home.component';
 import navigationComponent from './navigation/navigation';
 import customersComponent from './customers/customers';
 import customersTableComponent from './customers/customers-table';
@@ -28,7 +30,9 @@ angular
   .module(MODULE_NAME, ['ngRoute'])
   .config(hashPrefixConfig)
   .config(routeProviderConfig)
-  .component('home', homeComponent)
+  .directive('home', downgradeComponent({
+    component: HomeComponent
+  }) as angular.IDirectiveFactory)
   .component('navigation', navigationComponent)
   .component('customers', customersComponent)
   .component('customersTable', customersTableComponent)

@@ -3,9 +3,11 @@ import { UpgradeModule } from '@angular/upgrade/static';
 import { NgModule } from '@angular/core';
 
 import moduleName from './app.module.ajs';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [HomeComponent],
+  entryComponents: [HomeComponent],
   imports: [BrowserModule, UpgradeModule],
   providers: [],
   bootstrap: []
