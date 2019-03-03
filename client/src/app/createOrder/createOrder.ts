@@ -40,7 +40,7 @@ function createOrderComponentController(
   vm.$onInit = () => {
     const promises = [
       productService.getProducts(),
-      customerService.getCustomers()
+      customerService.getCustomers().toPromise()
     ];
     return $q.all(promises).then(data => {
       vm.products = data[0];

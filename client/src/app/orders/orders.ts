@@ -24,7 +24,10 @@ function ordersComponentController(
   vm.title = 'Orders';
 
   vm.$onInit = () => {
-    const promises = [orderService.getOrders(), customerService.getCustomers()];
+    const promises = [
+      orderService.getOrders(),
+      customerService.getCustomers().toPromise()
+    ];
     return $q.all(promises).then(data => {
       vm.orders = data[0];
       vm.customers = data[1];
