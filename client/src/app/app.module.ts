@@ -9,12 +9,13 @@ import { CustomerService } from './customers/customer.service';
 import { CustomersTableComponent } from './customers/customers-table.component';
 import { CustomersComponent } from './customers/customers.component';
 import { OrderService } from './orders/order.service';
+import { locationServiceProvider } from './ajs.upgradedproviders';
 
 @NgModule({
   declarations: [HomeComponent, CustomersComponent, CustomersTableComponent],
   entryComponents: [HomeComponent, CustomersComponent, CustomersTableComponent],
   imports: [BrowserModule, UpgradeModule, HttpClientModule],
-  providers: [CustomerService, OrderService],
+  providers: [CustomerService, OrderService, locationServiceProvider],
   bootstrap: []
 })
 export class AppModule {
