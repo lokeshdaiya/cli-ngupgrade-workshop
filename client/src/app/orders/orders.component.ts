@@ -8,13 +8,16 @@ import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'orders',
-  templateUrl: './orders.component.html'
+  templateUrl: './orders.component.html',
+  styles: ['tr a { cursor: pointer; }']
 })
 export class OrdersComponent implements OnInit {
   title = 'Orders';
   orders: Order[];
   filteredOrders: Order[];
   customers: Customer[];
+  sortReverse = false;
+  sortType: string;
 
   constructor(
     private orderService: OrderService,
@@ -37,11 +40,33 @@ export class OrdersComponent implements OnInit {
         order.customerName = customer.fullName;
       });
       this.filteredOrders = this.orders;
+      this.sortOrders('id');
     });
   }
 
   goToCreateOrder() {
     this.$location.path('/orders/create');
+  }
+
+  sortOrders(property) {
+    this.sortType = property;
+    this.sortReverse = !this.sortReverse;
+    this.filteredOrders.sort(this.dynamicSort(property));
+  }
+
+  dynamicSort(property) {
+    let sortOrder = -1;
+
+    if (this.sortReverse) {
+      sortOrder = 1;
+    }
+
+    return (a, b) => {
+      const result =
+        a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+
+      return result * sortOrder;
+    };
   }
 
   filterOrders(search: string) {

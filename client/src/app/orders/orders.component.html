@@ -28,67 +28,55 @@
       <thead>
         <tr>
           <th>
-            <a
-              href=""
-              (click)="sortType = 'orderId'; sortReverse = !sortReverse"
-            >
+            <a [href]="" (click)="sortOrders('id')">
               Order Id
-              <!-- <span
-                *ngIf="sortType == 'orderId' && !sortReverse"
+              <span
+                *ngIf="sortType === 'id' && !sortReverse"
                 class="fa fa-caret-down"
-              ></span> -->
-              <!-- <span
-                *ngIf="sortType == 'orderId' && sortReverse"
+              ></span>
+              <span
+                *ngIf="sortType === 'id' && sortReverse"
                 class="fa fa-caret-up"
-              ></span> -->
+              ></span>
             </a>
           </th>
           <th>
-            <a
-              href=""
-              (click)="sortType = 'customername'; sortReverse = !sortReverse"
-            >
+            <a [href]="" (click)="sortOrders('customerName')">
               Customer Name
-              <!-- <span
-                *ngIf="sortType == 'customername' && !sortReverse"
+              <span
+                *ngIf="sortType === 'customerName' && !sortReverse"
                 class="fa fa-caret-down"
               ></span>
               <span
-                *ngIf="sortType == 'customername' && sortReverse"
+                *ngIf="sortType === 'customerName' && sortReverse"
                 class="fa fa-caret-up"
-              ></span> -->
+              ></span>
             </a>
           </th>
           <th>
-            <a
-              href=""
-              (click)="sortType = 'totalItems'; sortReverse = !sortReverse"
-            >
+            <a [href]="" (click)="sortOrders('totalItems')">
               Total Items
-              <!-- <span
-                *ngIf="sortType == 'totalItems' && !sortReverse"
+              <span
+                *ngIf="sortType === 'totalItems' && !sortReverse"
                 class="fa fa-caret-down"
               ></span>
               <span
-                *ngIf="sortType == 'totalItems' && sortReverse"
+                *ngIf="sortType === 'totalItems' && sortReverse"
                 class="fa fa-caret-up"
-              ></span> -->
+              ></span>
             </a>
           </th>
           <th>
-            <a
-              href=""
-              (click)="sortType = 'totalSale'; sortReverse = !sortReverse"
-            >
+            <a [href]="" (click)="sortOrders('totalSale')">
               Total Sale
-              <!-- <span
-                *ngIf="sortType == 'totalSale' && !sortReverse"
+              <span
+                *ngIf="sortType === 'totalSale' && !sortReverse"
                 class="fa fa-caret-down"
               ></span>
               <span
-                *ngIf="sortType == 'totalSale' && sortReverse"
+                *ngIf="sortType === 'totalSale' && sortReverse"
                 class="fa fa-caret-up"
-              ></span> -->
+              ></span>
             </a>
           </th>
         </tr>
