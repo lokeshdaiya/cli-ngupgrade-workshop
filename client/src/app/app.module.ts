@@ -9,24 +9,35 @@ import { CustomerService } from './customers/customer.service';
 import { CustomersTableComponent } from './customers/customers-table.component';
 import { CustomersComponent } from './customers/customers.component';
 import { OrderService } from './orders/order.service';
-import { locationServiceProvider } from './ajs.upgradedproviders';
+import {
+  locationServiceProvider,
+  productServiceProvider
+} from './ajs.upgradedproviders';
 import { OrdersComponent } from './orders/orders.component';
+import { CreateOrderComponent } from './createOrder/create-order.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     CustomersComponent,
     CustomersTableComponent,
-    OrdersComponent
+    OrdersComponent,
+    CreateOrderComponent
   ],
   entryComponents: [
     HomeComponent,
     CustomersComponent,
     CustomersTableComponent,
-    OrdersComponent
+    OrdersComponent,
+    CreateOrderComponent
   ],
   imports: [BrowserModule, UpgradeModule, HttpClientModule],
-  providers: [CustomerService, OrderService, locationServiceProvider],
+  providers: [
+    CustomerService,
+    OrderService,
+    locationServiceProvider,
+    productServiceProvider
+  ],
   bootstrap: []
 })
 export class AppModule {

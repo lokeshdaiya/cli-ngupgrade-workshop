@@ -7,3 +7,13 @@ export const locationServiceProvider = {
   useFactory: locationServiceFactory,
   deps: ['$injector']
 };
+
+export function productServiceFactory(i: any) {
+  return i.get('productService');
+}
+
+export const productServiceProvider = {
+  provide: 'productService',
+  useFactory: productServiceFactory,
+  deps: ['$injector']
+};
