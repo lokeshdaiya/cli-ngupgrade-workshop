@@ -6,10 +6,12 @@ import { NgModule } from '@angular/core';
 import moduleName from './app.module.ajs';
 import { HomeComponent } from './home/home.component';
 import { CustomerService } from './customers/customer.service';
+import { CustomersTableComponent } from './customers/customers-table.component';
+import { CustomersComponent } from './customers/customers.component';
 
 @NgModule({
-  declarations: [HomeComponent],
-  entryComponents: [HomeComponent],
+  declarations: [HomeComponent, CustomersComponent, CustomersTableComponent],
+  entryComponents: [HomeComponent, CustomersComponent, CustomersTableComponent],
   imports: [BrowserModule, UpgradeModule, HttpClientModule],
   providers: [CustomerService],
   bootstrap: []

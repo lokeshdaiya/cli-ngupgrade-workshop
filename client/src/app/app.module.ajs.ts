@@ -13,8 +13,8 @@ import hashPrefixConfig from './config.hashprefix';
 import routeProviderConfig from './config.routes';
 import { HomeComponent } from './home/home.component';
 import navigationComponent from './navigation/navigation';
-import customersComponent from './customers/customers';
-import customersTableComponent from './customers/customers-table';
+import { CustomersComponent } from './customers/customers.component';
+import { CustomersTableComponent } from './customers/customers-table.component';
 import customerDetailComponent from './customerDetail/customerDetail';
 import discountComponent from './customerDetail/discount';
 import ordersComponent from './orders/orders';
@@ -37,8 +37,12 @@ angular
     component: HomeComponent
   }) as angular.IDirectiveFactory)
   .component('navigation', navigationComponent)
-  .component('customers', customersComponent)
-  .component('customersTable', customersTableComponent)
+  .directive('customers', downgradeComponent({
+    component: CustomersComponent
+  }) as angular.IDirectiveFactory)
+  .directive('customersTable', downgradeComponent({
+    component: CustomersTableComponent
+  }) as angular.IDirectiveFactory)
   .component('customerDetail', customerDetailComponent)
   .component('discount', discountComponent)
   .component('orders', ordersComponent)
