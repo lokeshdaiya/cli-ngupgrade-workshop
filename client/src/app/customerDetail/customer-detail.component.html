@@ -18,11 +18,11 @@
   </div>
 </div>
 <br />
-<!-- <discount
+<discount
   *ngIf="customer.getsDiscount"
-  customer-discount="customer.discount"
-  update="updateDiscount(discount)"
-></discount> -->
+  [customerDiscount]="customer.discount"
+  (update)="updateDiscount($event)"
+></discount>
 <div class="row" *ngIf="orders && orders.length > 0">
   <div class="col-md-12">
     <h3>Orders</h3>
