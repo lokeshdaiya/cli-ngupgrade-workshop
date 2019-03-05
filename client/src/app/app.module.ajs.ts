@@ -25,7 +25,7 @@ import productDetailComponent from './productDetail/productDetail';
 import { CustomerService } from './customers/customer.service';
 import { AddressService } from './shared/address.service';
 import { OrderService } from './orders/order.service';
-import ProductService from './products/productService';
+import { ProductService } from './products/product.service';
 
 const MODULE_NAME = 'app';
 
@@ -61,6 +61,6 @@ angular
   .factory('customerService', downgradeInjectable(CustomerService))
   .factory('addressService', downgradeInjectable(AddressService))
   .factory('orderService', downgradeInjectable(OrderService))
-  .service('productService', ProductService);
+  .factory('productService', downgradeInjectable(ProductService));
 
 export default MODULE_NAME;

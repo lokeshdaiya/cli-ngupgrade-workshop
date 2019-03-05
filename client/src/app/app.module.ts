@@ -10,15 +10,13 @@ import { CustomerService } from './customers/customer.service';
 import { CustomersTableComponent } from './customers/customers-table.component';
 import { CustomersComponent } from './customers/customers.component';
 import { OrderService } from './orders/order.service';
-import {
-  locationServiceProvider,
-  productServiceProvider
-} from './ajs.upgradedproviders';
+import { locationServiceProvider } from './ajs.upgradedproviders';
 import { OrdersComponent } from './orders/orders.component';
 import { CreateOrderComponent } from './createOrder/create-order.component';
 import { CustomerDetailComponent } from './customerDetail/customer-detail.component';
 import { DiscountComponent } from './customerDetail/discount.component';
 import { AddressService } from './shared/address.service';
+import { ProductService } from './products/product.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +42,7 @@ import { AddressService } from './shared/address.service';
     CustomerService,
     OrderService,
     locationServiceProvider,
-    productServiceProvider,
+    ProductService,
     AddressService
   ],
   bootstrap: []
