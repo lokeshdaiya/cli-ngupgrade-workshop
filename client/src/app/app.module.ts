@@ -18,7 +18,7 @@ import {
 import { OrdersComponent } from './orders/orders.component';
 import { CreateOrderComponent } from './createOrder/create-order.component';
 import { CustomerDetailComponent } from './customerDetail/customer-detail.component';
-import { DiscountDirective } from './customerDetail/discount';
+import { DiscountComponent } from './customerDetail/discount.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { DiscountDirective } from './customerDetail/discount';
     OrdersComponent,
     CreateOrderComponent,
     CustomerDetailComponent,
-    DiscountDirective
+    DiscountComponent
   ],
   entryComponents: [
     HomeComponent,
@@ -36,7 +36,8 @@ import { DiscountDirective } from './customerDetail/discount';
     CustomersTableComponent,
     OrdersComponent,
     CreateOrderComponent,
-    CustomerDetailComponent
+    CustomerDetailComponent,
+    DiscountComponent
   ],
   imports: [BrowserModule, UpgradeModule, HttpClientModule, FormsModule],
   providers: [
