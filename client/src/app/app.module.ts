@@ -12,10 +12,12 @@ import { CustomersComponent } from './customers/customers.component';
 import { OrderService } from './orders/order.service';
 import {
   locationServiceProvider,
-  productServiceProvider
+  productServiceProvider,
+  addressServiceProvider
 } from './ajs.upgradedproviders';
 import { OrdersComponent } from './orders/orders.component';
 import { CreateOrderComponent } from './createOrder/create-order.component';
+import { CustomerDetailComponent } from './customerDetail/customer-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,21 +25,24 @@ import { CreateOrderComponent } from './createOrder/create-order.component';
     CustomersComponent,
     CustomersTableComponent,
     OrdersComponent,
-    CreateOrderComponent
+    CreateOrderComponent,
+    CustomerDetailComponent
   ],
   entryComponents: [
     HomeComponent,
     CustomersComponent,
     CustomersTableComponent,
     OrdersComponent,
-    CreateOrderComponent
+    CreateOrderComponent,
+    CustomerDetailComponent
   ],
   imports: [BrowserModule, UpgradeModule, HttpClientModule, FormsModule],
   providers: [
     CustomerService,
     OrderService,
     locationServiceProvider,
-    productServiceProvider
+    productServiceProvider,
+    addressServiceProvider
   ],
   bootstrap: []
 })

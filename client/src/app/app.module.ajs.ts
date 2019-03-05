@@ -15,7 +15,7 @@ import { HomeComponent } from './home/home.component';
 import navigationComponent from './navigation/navigation';
 import { CustomersComponent } from './customers/customers.component';
 import { CustomersTableComponent } from './customers/customers-table.component';
-import customerDetailComponent from './customerDetail/customerDetail';
+import { CustomerDetailComponent } from './customerDetail/customer-detail.component';
 import discountComponent from './customerDetail/discount';
 import { OrdersComponent } from './orders/orders.component';
 import { CreateOrderComponent } from './createOrder/create-order.component';
@@ -43,7 +43,9 @@ angular
   .directive('customersTable', downgradeComponent({
     component: CustomersTableComponent
   }) as angular.IDirectiveFactory)
-  .component('customerDetail', customerDetailComponent)
+  .directive('customerDetail', downgradeComponent({
+    component: CustomerDetailComponent
+  }) as angular.IDirectiveFactory)
   .component('discount', discountComponent)
   .directive('orders', downgradeComponent({
     component: OrdersComponent

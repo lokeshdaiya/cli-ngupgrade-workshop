@@ -18,7 +18,7 @@ function routeProviderConfig($routeProvider) {
     })
     .when('/customers/:id', {
       template:
-        '<customer-detail customer="$resolve.customer"></customer-detail>',
+        '<customer-detail [customer]="$resolve.customer"></customer-detail>',
       resolve: {
         customer: [
           '$route',
