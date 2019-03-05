@@ -11,17 +11,11 @@ export class CustomerService {
     return this.http.get<Customer[]>('/api/customers');
   }
 
-  getCustomer(id): Promise<any> {
-    return this.http
-      .get(`/api/customers/${id}`)
-      .toPromise()
-      .then(response => response);
+  getCustomer(id): Observable<Customer> {
+    return this.http.get<Customer>(`/api/customers/${id}`);
   }
 
-  postCustomer(customer): Promise<any> {
-    return this.http
-      .post('/api/customers', customer)
-      .toPromise()
-      .then(data => data);
+  postCustomer(customer): Observable<Customer> {
+    return this.http.post<Customer>('/api/customers', customer);
   }
 }

@@ -11,18 +11,12 @@ export class OrderService {
     return this.http.get<Order[]>('/api/orders');
   }
 
-  getOrder(id): Promise<Order> {
-    return this.http
-      .get<Order>(`/api/orders/${id}`)
-      .toPromise()
-      .then(response => response);
+  getOrder(id): Observable<Order> {
+    return this.http.get<Order>(`/api/orders/${id}`);
   }
 
-  getOrdersByCustomer(customerId): Promise<Order[]> {
-    return this.http
-      .get<Order[]>(`/api/customers/${customerId}/orders`)
-      .toPromise()
-      .then(response => response);
+  getOrdersByCustomer(customerId): Observable<Order[]> {
+    return this.http.get<Order[]>(`/api/customers/${customerId}/orders`);
   }
 
   postOrder(order): Observable<Order> {

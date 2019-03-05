@@ -3,6 +3,7 @@ import { OrderService } from '../orders/order.service';
 import { CustomerService } from '../customers/customer.service';
 import { forkJoin, from } from 'rxjs';
 import { Customer } from '../customers/customer.interface';
+import { ProductService } from '../products/product.service';
 
 @Component({
   selector: 'create-order',
@@ -13,7 +14,7 @@ export class CreateOrderComponent implements OnInit {
     private orderService: OrderService,
     private customerService: CustomerService,
     @Inject('$location') private $location,
-    @Inject('productService') private productService
+    private productService: ProductService
   ) {}
   title = 'Create Order';
   products: any;
@@ -38,9 +39,9 @@ export class CreateOrderComponent implements OnInit {
       from(this.productService.getProducts()),
       this.customerService.getCustomers()
     ];
-    forkJoin(createOrderData).subscribe(data => {
+    forkJoin(createOrderData).subscribe((data: any) => {
       this.products = data[0];
-      this.customers = data[1] as Customer[];
+      this.customers = data[1];
     });
   }
 
