@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { UpgradeModule } from '@angular/upgrade/static';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import moduleName from './app.module.ajs';
 import { HomeComponent } from './home/home.component';
@@ -31,7 +32,7 @@ import { CreateOrderComponent } from './createOrder/create-order.component';
     OrdersComponent,
     CreateOrderComponent
   ],
-  imports: [BrowserModule, UpgradeModule, HttpClientModule],
+  imports: [BrowserModule, UpgradeModule, HttpClientModule, FormsModule],
   providers: [
     CustomerService,
     OrderService,

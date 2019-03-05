@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { OrderService } from '../orders/order.service';
 import { CustomerService } from '../customers/customer.service';
-import { forkJoin } from 'rxjs';
+import { forkJoin, from } from 'rxjs';
 import { Customer } from '../customers/customer.interface';
 
 @Component({
@@ -35,12 +35,12 @@ export class CreateOrderComponent implements OnInit {
 
   ngOnInit() {
     const createOrderData = [
-      this.productService.getProducts(),
-      this.customerService.getCustomers().toPromise()
+      from(this.productService.getProducts()),
+      this.customerService.getCustomers()
     ];
     forkJoin(createOrderData).subscribe(data => {
       this.products = data[0];
-      this.customers = data[1];
+      this.customers = data[1] as Customer[];
     });
   }
 
