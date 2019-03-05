@@ -23,7 +23,7 @@ function orderDetailComponentController(productService, customerService, $q) {
 
   vm.$onInit = () => {
     const promises = [
-      productService.getProducts(),
+      productService.getProducts().toPromise(),
       customerService.getCustomer(vm.order.customerId)
     ];
     return $q.all(promises).then(data => {

@@ -17,6 +17,9 @@ import { CustomerDetailComponent } from './customerDetail/customer-detail.compon
 import { DiscountComponent } from './customerDetail/discount.component';
 import { AddressService } from './shared/address.service';
 import { ProductService } from './products/product.service';
+import { NavigationComponent } from './navigation/navigation.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductDetailComponent } from './productDetail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { ProductService } from './products/product.service';
     OrdersComponent,
     CreateOrderComponent,
     CustomerDetailComponent,
-    DiscountComponent
+    DiscountComponent,
+    NavigationComponent,
+    ProductsComponent,
+    ProductDetailComponent
   ],
   entryComponents: [
     HomeComponent,
@@ -35,7 +41,10 @@ import { ProductService } from './products/product.service';
     OrdersComponent,
     CreateOrderComponent,
     CustomerDetailComponent,
-    DiscountComponent
+    DiscountComponent,
+    NavigationComponent,
+    ProductsComponent,
+    ProductDetailComponent
   ],
   imports: [BrowserModule, UpgradeModule, HttpClientModule, FormsModule],
   providers: [

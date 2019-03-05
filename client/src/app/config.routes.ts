@@ -44,14 +44,15 @@ function routeProviderConfig($routeProvider) {
       }
     })
     .when('/products/:id', {
-      template: '<product-detail product="$resolve.product"></product-detail>',
+      template:
+        '<product-detail [product]="$resolve.product"></product-detail>',
       resolve: {
         product: [
           '$route',
           'productService',
           ($route, productService) => {
             const id = parseInt($route.current.params.id, 10);
-            return productService.getProduct(id);
+            return productService.getProduct(id).toPromise();
           }
         ]
       }
