@@ -17,13 +17,3 @@ export const productServiceProvider = {
   useFactory: productServiceFactory,
   deps: ['$injector']
 };
-
-export function addressServiceFactory(i: any) {
-  return i.get('addressService');
-}
-
-export const addressServiceProvider = {
-  provide: 'addressService',
-  useFactory: addressServiceFactory,
-  deps: ['$injector']
-};

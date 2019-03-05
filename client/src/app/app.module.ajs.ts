@@ -23,7 +23,7 @@ import orderDetailComponent from './orderDetail/orderDetail';
 import productsComponent from './products/products';
 import productDetailComponent from './productDetail/productDetail';
 import { CustomerService } from './customers/customer.service';
-import AddressService from './shared/addressService';
+import { AddressService } from './shared/address.service';
 import { OrderService } from './orders/order.service';
 import ProductService from './products/productService';
 
@@ -59,7 +59,7 @@ angular
   .component('products', productsComponent)
   .component('productDetail', productDetailComponent)
   .factory('customerService', downgradeInjectable(CustomerService))
-  .service('addressService', AddressService)
+  .factory('addressService', downgradeInjectable(AddressService))
   .factory('orderService', downgradeInjectable(OrderService))
   .service('productService', ProductService);
 

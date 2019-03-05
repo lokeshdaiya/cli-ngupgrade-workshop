@@ -2,6 +2,7 @@ import * as moment from 'moment';
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Customer } from '../customers/customer.interface';
 import { OrderService } from '../orders/order.service';
+import { AddressService } from '../shared/address.service';
 
 @Component({
   selector: 'customer-detail',
@@ -13,7 +14,7 @@ export class CustomerDetailComponent implements OnInit {
   address: string;
   orders: any[];
   constructor(
-    @Inject('addressService') private addressService,
+    private addressService: AddressService,
     private orderService: OrderService
   ) {}
 

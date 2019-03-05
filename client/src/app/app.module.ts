@@ -12,13 +12,13 @@ import { CustomersComponent } from './customers/customers.component';
 import { OrderService } from './orders/order.service';
 import {
   locationServiceProvider,
-  productServiceProvider,
-  addressServiceProvider
+  productServiceProvider
 } from './ajs.upgradedproviders';
 import { OrdersComponent } from './orders/orders.component';
 import { CreateOrderComponent } from './createOrder/create-order.component';
 import { CustomerDetailComponent } from './customerDetail/customer-detail.component';
 import { DiscountComponent } from './customerDetail/discount.component';
+import { AddressService } from './shared/address.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,7 @@ import { DiscountComponent } from './customerDetail/discount.component';
     OrderService,
     locationServiceProvider,
     productServiceProvider,
-    addressServiceProvider
+    AddressService
   ],
   bootstrap: []
 })

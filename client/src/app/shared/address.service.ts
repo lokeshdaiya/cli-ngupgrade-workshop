@@ -1,4 +1,7 @@
-class AddressService {
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class AddressService {
   constructor() {}
 
   getFullAddress(customer) {
@@ -13,5 +16,3 @@ class AddressService {
     );
   }
 }
-
-export default AddressService;
