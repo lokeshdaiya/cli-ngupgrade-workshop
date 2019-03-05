@@ -25,10 +25,7 @@ export class OrderService {
       .then(response => response);
   }
 
-  postOrder(order): Promise<Order> {
-    return this.http
-      .post<Order>('/api/orders', order)
-      .toPromise()
-      .then(response => response);
+  postOrder(order): Observable<Order> {
+    return this.http.post<Order>('/api/orders', order);
   }
 }

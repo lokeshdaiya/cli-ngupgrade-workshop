@@ -47,7 +47,8 @@ export class CreateOrderComponent implements OnInit {
   postOrder() {
     this.newOrder.items = this.newOrder.items.filter(x => x.productId !== null);
 
-    return this.orderService.postOrder(this.newOrder).then(() => {
+    return this.orderService.postOrder(this.newOrder).subscribe(data => {
+      console.log(data);
       this.$location.path('/orders');
     });
   }
